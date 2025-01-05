@@ -1,11 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Random Gift</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+  <div class="app">
+    <h1>🎁 Random Gift</h1>
+    <div class="carousel-container">
+      <button id="prev" class="nav-btn">⬅️</button>
+      <div class="carousel">
+        <div class="carousel-track">
+          <div class="carousel-item">
+            <img src="img/ordenador.jpg" alt="Ordenador">
+            <button class="like-btn">❤️ Like</button>
+          </div>
+          <div class="carousel-item">
+            <img src="img/auriculares.jpg" alt="Auriculares">
+            <button class="like-btn">❤️ Like</button>
+          </div>
+          <div class="carousel-item">
+            <img src="img/smartphone.jpg" alt="Smartphone">
+            <button class="like-btn">❤️ Like</button>
+          </div>
+          <div class="carousel-item">
+            <img src="img/reloj.jpg" alt="Reloj">
+            <button class="like-btn">❤️ Like</button>
+          </div>
+          <div class="carousel-item">
+            <img src="img/libro.jpg" alt="Libro">
+            <button class="like-btn">❤️ Like</button>
+          </div>
+        </div>
+      </div>
+      <button id="next" class="nav-btn">➡️</button>
+    </div>
+    <div class="liked-items">
+      <h2>❤️ Mis regalos favoritos</h2>
+      <ul id="favorites"></ul>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
