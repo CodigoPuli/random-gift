@@ -1,103 +1,153 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f9f9f9;
-    text-align: center;
-  }
-  
-  h1 {
-    margin: 20px 0;
-    color: #333;
-  }
-  
-  .carousel-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 20px;
-  }
-  
-  .carousel {
-    overflow: hidden;
-    width: 300px; /* Ancho del contenedor del carrusel */
-  }
-  
-  .carousel-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-  }
-  
-  .carousel-item {
-    min-width: 300px; /* Ancho de cada elemento */
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .carousel-item img {
-    width: 100%;
-    height: auto;
-    max-height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .nav-btn {
-    background: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 18px;
-  }
-  
-  .nav-btn:hover {
-    background: #0056b3;
-  }
-  
-  .like-btn {
-    background: #ff4d4d;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 14px;
-  }
-  
-  .like-btn:hover {
-    background: #cc0000;
-  }
-  
-  .liked-items {
-    margin: 20px;
-  }
-  
-  .liked-items ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .liked-items li {
-    margin: 5px 0;
-    font-size: 16px;
-    color: #333;
-  }
-  
-  .delete-btn {
-    background-color: #f44336; /* Rojo */
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 0.9em;
-    margin-left: 10px;
-  }
-  
-  .delete-btn:hover {
-    background-color: #d32f2f;
-  }
-  
-  
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+h1 {
+  margin: 20px 0;
+  color: #333;
+}
+
+.carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+.carousel {
+  overflow: hidden;
+  width: 300px; /* Ancho del carrusel */
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%; /* Se adapta al contenedor */
+}
+
+.carousel-item {
+  min-width: 300px; /* Ancho de cada elemento */
+  padding: 10px;
+  text-align: center;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+
+.nav-btn {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.nav-btn:hover {
+  background: #0056b3;
+}
+
+.like-btn {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.like-btn:hover {
+  background: #cc0000;
+}
+
+.liked-items {
+  margin: 20px;
+}
+
+.liked-items ul {
+  list-style: none;
+  padding: 0;
+}
+
+.liked-items li {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.delete-btn {
+  background-color: #f44336; /* Rojo */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 0.9em;
+  margin-left: 10px;
+}
+
+.delete-btn:hover {
+  background-color: #d32f2f;
+}
+
+/* Estilos para los formularios de login y registro */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
+  max-width: 300px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.auth-form input {
+  margin: 10px 0;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.auth-form button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.auth-form button:hover {
+  background-color: #0056b3;
+}
+
+.auth-form a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.auth-form a:hover {
+  text-decoration: underline;
+}
+
+/* Hacer que los elementos de carrusel y favoritos solo se muestren si se ha iniciado sesión */
+.carousel-container, .liked-items {
+  display: none;
+}
