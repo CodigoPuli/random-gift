@@ -4,7 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const prevButton = document.getElementById('prev');
   const nextButton = document.getElementById('next');
   const likeButtons = document.querySelectorAll('.like-btn');
+  const cartButtons = document.querySelectorAll('.cart-btn');
   const favoritesList = document.getElementById('favorites');
+  const cartList = document.getElementById('cart');
   const filterDropdown = document.getElementById('category-filter');
   const filterContainer = document.getElementById('filter-container');
 
@@ -20,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('auth-container').style.display = 'none';
     document.querySelector('.carousel-container').style.display = 'flex';
     document.querySelector('.liked-items').style.display = 'block';
+    document.querySelector('.cart-items').style.display = 'block';
     filterContainer.style.display = 'flex'; // Mostrar filtro solo cuando el usuario haya iniciado sesión
   };
 
@@ -27,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('auth-container').style.display = 'block';
     document.querySelector('.carousel-container').style.display = 'none';
     document.querySelector('.liked-items').style.display = 'none';
+    document.querySelector('.cart-items').style.display = 'none';
     filterContainer.style.display = 'none'; // Ocultar filtro en la página de login
   };
 
@@ -72,6 +76,23 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   loadFavorites();
 
+  const loadCart = () => {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cartList.innerHTML = '';
+    cart.forEach(item => {
+      const listItem = document.createElement('li');
+      listItem.textContent = item;
+
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = 'Eliminar';
+      deleteButton.classList.add('delete-btn');
+      listItem.appendChild(deleteButton);
+
+      cartList.appendChild(listItem);
+    });
+  };
+  loadCart();
+
   likeButtons.forEach(button => {
     button.addEventListener('click', (e) => {
       const item = e.target.closest('.carousel-item');
@@ -86,6 +107,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  cartButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      const item = e.target.closest('.carousel-item');
+      const name = item.querySelector('img').alt;
+
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      if (!cart.includes(name)) {
+        cart.push(name);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        loadCart();
+      }
+    });
+  });
+
   favoritesList.addEventListener('click', (e) => {
     if (e.target.classList.contains('delete-btn')) {
       const listItem = e.target.closest('li');
@@ -96,6 +131,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
       localStorage.setItem('favorites', JSON.stringify(favorites));
       loadFavorites();
+    }
+  });
+
+  cartList.addEventListener('click', (e) => {
+    if (e.target.classList.contains('delete-btn')) {
+      const listItem = e.target.closest('li');
+      const giftName = listItem.textContent.replace('Eliminar', '').trim();
+
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart = cart.filter(item => item !== giftName);
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+      loadCart();
     }
   });
 

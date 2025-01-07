@@ -9,8 +9,8 @@
 <body>
   <div class="app">
     <h1>🎁 Random Gift</h1>
-    
-    <!-- Filtro de categoría en la parte superior derecha -->
+
+    <!-- Filtro de categoría -->
     <div class="filter-container" id="filter-container">
       <label for="category-filter">Filtrar por categoría:</label>
       <select id="category-filter">
@@ -20,7 +20,7 @@
         <option value="libros">Libros</option>
       </select>
     </div>
-    
+
     <div id="auth-container">
       <div id="login-form" class="auth-form">
         <h2>Iniciar sesión</h2>
@@ -38,30 +38,37 @@
           <div class="carousel-item" data-category="tecnologia">
             <img src="img/ordenador.jpg" alt="Ordenador">
             <button class="like-btn">❤️ Like</button>
+            <button class="cart-btn">🛒 Carrito</button>
           </div>
           <div class="carousel-item" data-category="tecnologia">
             <img src="img/auriculares.jpg" alt="Auriculares">
             <button class="like-btn">❤️ Like</button>
+            <button class="cart-btn">🛒 Carrito</button>
           </div>
           <div class="carousel-item" data-category="tecnologia">
             <img src="img/smartphone.jpg" alt="Smartphone">
             <button class="like-btn">❤️ Like</button>
+            <button class="cart-btn">🛒 Carrito</button>
           </div>
           <div class="carousel-item" data-category="moda">
             <img src="img/gorra.jpg" alt="Gorra">
             <button class="like-btn">❤️ Like</button>
+            <button class="cart-btn">🛒 Carrito</button>
           </div>
           <div class="carousel-item" data-category="moda">
             <img src="img/camiseta.jpg" alt="Camiseta">
             <button class="like-btn">❤️ Like</button>
+            <button class="cart-btn">🛒 Carrito</button>
           </div>
           <div class="carousel-item" data-category="moda">
             <img src="img/reloj.jpg" alt="Reloj">
             <button class="like-btn">❤️ Like</button>
+            <button class="cart-btn">🛒 Carrito</button>
           </div>
           <div class="carousel-item" data-category="libros">
             <img src="img/libro.jpg" alt="Libro">
             <button class="like-btn">❤️ Like</button>
+            <button class="cart-btn">🛒 Carrito</button>
           </div>
         </div>
       </div>
@@ -72,8 +79,13 @@
       <h2>❤️ Mis regalos favoritos</h2>
       <ul id="favorites"></ul>
     </div>
+
+    <div class="cart-items">
+      <h2>🛒 Carrito de Compras</h2>
+      <ul id="cart"></ul>
+    </div>
   </div>
-  
+
   <script src="script.js"></script>
 </body>
 </html>

@@ -176,3 +176,32 @@ h1 {
 .carousel-container, .liked-items {
   display: none;
 }
+/* Estilos para el carrito */
+.cart-items {
+  margin: 20px;
+}
+
+.cart-items ul {
+  list-style: none;
+  padding: 0;
+}
+
+.cart-items li {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.cart-items button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 0.9em;
+  margin-left: 10px;
+}
+
+.cart-items button:hover {
+  background-color: #d32f2f;
+}
