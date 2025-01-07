@@ -5,30 +5,31 @@ document.addEventListener('DOMContentLoaded', () => {
   const nextButton = document.getElementById('next');
   const likeButtons = document.querySelectorAll('.like-btn');
   const favoritesList = document.getElementById('favorites');
+  const filterDropdown = document.getElementById('category-filter');
+  const filterContainer = document.getElementById('filter-container');
 
   let currentIndex = 0;
 
-  // Función para mover el carrusel
   const moveToIndex = (index) => {
-    const itemWidth = items[0]?.getBoundingClientRect().width || 0;
+    const visibleItems = items.filter(item => item.style.display !== 'none');
+    const itemWidth = visibleItems[0]?.getBoundingClientRect().width || 0;
     track.style.transform = `translateX(-${index * itemWidth}px)`;
   };
 
-  // Mostrar el contenido de la app
   const showAppContent = () => {
     document.getElementById('auth-container').style.display = 'none';
     document.querySelector('.carousel-container').style.display = 'flex';
     document.querySelector('.liked-items').style.display = 'block';
+    filterContainer.style.display = 'flex'; // Mostrar filtro solo cuando el usuario haya iniciado sesión
   };
 
-  // Ocultar contenido de la app y mostrar login
   const showLoginForm = () => {
     document.getElementById('auth-container').style.display = 'block';
     document.querySelector('.carousel-container').style.display = 'none';
     document.querySelector('.liked-items').style.display = 'none';
+    filterContainer.style.display = 'none'; // Ocultar filtro en la página de login
   };
 
-  // Manejo de login
   document.getElementById('login-btn').addEventListener('click', () => {
     const username = document.getElementById('login-username').value;
     const password = document.getElementById('login-password').value;
@@ -44,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Ajustar la posición del carrusel
   prevButton.addEventListener('click', () => {
     currentIndex = (currentIndex > 0) ? currentIndex - 1 : items.length - 1;
     moveToIndex(currentIndex);
@@ -55,15 +55,13 @@ document.addEventListener('DOMContentLoaded', () => {
     moveToIndex(currentIndex);
   });
 
-  // Cargar los regalos guardados en la lista de favoritos
   const loadFavorites = () => {
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    favoritesList.innerHTML = ''; // Limpiar la lista antes de cargar nuevos elementos
+    favoritesList.innerHTML = '';
     favorites.forEach(favorite => {
       const listItem = document.createElement('li');
       listItem.textContent = favorite;
 
-      // Botón de eliminar
       const deleteButton = document.createElement('button');
       deleteButton.textContent = 'Eliminar';
       deleteButton.classList.add('delete-btn');
@@ -74,23 +72,20 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   loadFavorites();
 
-  // Manejo de "Like" en los regalos
   likeButtons.forEach(button => {
     button.addEventListener('click', (e) => {
       const item = e.target.closest('.carousel-item');
       const name = item.querySelector('img').alt;
 
-      // Verificar si ya está en favoritos
       const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
       if (!favorites.includes(name)) {
         favorites.push(name);
         localStorage.setItem('favorites', JSON.stringify(favorites));
-        loadFavorites(); // Actualizar la lista de favoritos
+        loadFavorites();
       }
     });
   });
 
-  // Manejo de eliminación de regalos en la lista de favoritos
   favoritesList.addEventListener('click', (e) => {
     if (e.target.classList.contains('delete-btn')) {
       const listItem = e.target.closest('li');
@@ -100,10 +95,19 @@ document.addEventListener('DOMContentLoaded', () => {
       favorites = favorites.filter(favorite => favorite !== giftName);
 
       localStorage.setItem('favorites', JSON.stringify(favorites));
-      loadFavorites(); // Actualizar la lista de favoritos
+      loadFavorites();
     }
   });
 
-  // Mostrar el formulario de login al cargar la página
+  filterDropdown.addEventListener('change', (e) => {
+    const selectedCategory = e.target.value;
+    items.forEach(item => {
+      const itemCategory = item.dataset.category;
+      item.style.display = (selectedCategory === '' || itemCategory === selectedCategory || (selectedCategory === 'moda' && ['gorra', 'camiseta'].some(keyword => item.querySelector('img').alt.toLowerCase().includes(keyword)))) ? 'block' : 'none';
+    });
+    currentIndex = 0;
+    moveToIndex(currentIndex);
+  });
+
   showLoginForm();
 });
