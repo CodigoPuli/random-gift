@@ -2,7 +2,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #f9f9f9;
+  background: #F5F5DC;
   text-align: center;
 }
 
@@ -19,7 +19,7 @@ h1 {
   position: fixed;
   top: 20px;
   right: 20px;
-  background-color: #f1f1f1;
+  background-color: #808080;
   padding: 10px;
   border-radius: 5px;
   z-index: 10;
@@ -261,18 +261,63 @@ h1 {
   background-color: #0056b3;
 }
 /* Centrado del título */
+/* Centrado del título */
 h1 {
   display: flex;
   align-items: center;   /* Alinea verticalmente el texto y la imagen */
   justify-content: center; /* Centra el texto horizontalmente */
   font-size: 2em;         /* Tamaño del texto */
   text-align: center;     /* Centra el texto */
+  
 }
 
 /* Estilo para la imagen del regalo */
+/* Estilo para la imagen del regalo */
 .gift-icon {
-  width: 40px;  /* Ajusta el tamaño de la imagen */
+  width: 40px;  /* Ajusta el tamaño inicial de la imagen */
   height: auto;
   margin-right: 10px; /* Espacio entre la imagen y el texto */
   vertical-align: middle; /* Alineación vertical */
+  transition: transform 0.3s ease; /* Suaviza el efecto de transformación */
+  border-radius: 20px;
 }
+
+/* Efecto hover para aumentar la imagen */
+.gift-icon:hover {
+  transform: scale(1.5); /* Aumenta el tamaño de la imagen al 150% */
+}
+
+.gradient-background {
+  background: linear-gradient(to right, 
+    #ff7e5f,  /* Rosa */
+    #feb47b,  /* Naranja */
+    #ff6a00,  /* Naranja fuerte */
+    #d83c74,  /* Rojo anaranjado */
+    #3a1c71,  /* Púrpura */
+    #ffd200   /* Amarillo */
+  );
+  height: 5vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: whitesmoke;
+  font-family: 'Poppins', sans-serif;  /* Cambia la tipografía a Poppins */
+  border-radius: 5px; /* Esquinas redondeadas */
+  transition: background 0.3s ease, color 0.3s ease; /* Suaviza el cambio del fondo y color */
+}
+
+/* Efecto hover */
+.gradient-background:hover {
+  background: linear-gradient(to right, 
+    #00c6ff,  /* Azul */
+    #0072ff,  /* Azul fuerte */
+    #8e2de2,  /* Violeta */
+    #4a00e0,  /* Púrpura oscuro */
+    #ff7e5f,  /* Rosa */
+    #feb47b   /* Naranja */
+  );
+  color: black;  /* Cambia el color del texto a gris oscuro */
+  cursor: pointer; /* Cambia el cursor para indicar que es interactivo */
+}
+
