@@ -157,5 +157,55 @@ document.addEventListener('DOMContentLoaded', () => {
     moveToIndex(currentIndex);
   });
 
+  // Nueva funcionalidad: Vista detallada del producto
+  const createModal = () => {
+    const modal = document.createElement('div');
+    modal.classList.add('modal');
+    const modalContent = document.createElement('div');
+    modalContent.classList.add('modal-content');
+
+    const modalCloseButton = document.createElement('button');
+    modalCloseButton.textContent = 'Cerrar';
+    modalCloseButton.style.marginTop = '10px';
+    modalCloseButton.addEventListener('click', () => modal.classList.remove('active'));
+
+    modal.appendChild(modalContent);
+    document.body.appendChild(modal);
+
+    return { modal, modalContent, modalCloseButton };
+  };
+
+  const { modal, modalContent, modalCloseButton } = createModal();
+
+  let modalIndex = 0;
+  let modalImages = [];
+
+  const moveModalIndex = (index) => {
+    modalImages.forEach((img, i) => {
+      img.style.display = i === index ? 'block' : 'none';
+    });
+  };
+
+  items.forEach((item, index) => {
+    const img = item.querySelector('img');
+    img.addEventListener('click', () => {
+      modalIndex = index;
+      modalImages = items.map(i => i.querySelector('img').cloneNode());
+      modalContent.innerHTML = '';
+      modalImages.forEach(modalImg => modalContent.appendChild(modalImg));
+      modalContent.appendChild(modalCloseButton);
+
+      moveModalIndex(modalIndex);
+      modal.classList.add('active');
+    });
+  });
+
+  modalContent.addEventListener('click', (e) => {
+    if (e.target.tagName === 'IMG') {
+      modalIndex = (modalIndex + 1) % modalImages.length;
+      moveModalIndex(modalIndex);
+    }
+  });
+
   showLoginForm();
 });
