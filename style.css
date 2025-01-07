@@ -1,323 +1,327 @@
+/* Estilos generales para el cuerpo de la página */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #F5F5DC;
-  text-align: center;
+  font-family: Arial, sans-serif; /* Tipo de fuente */
+  margin: 0; /* Elimina márgenes por defecto */
+  padding: 0; /* Elimina padding por defecto */
+  background: #F5F5DC; /* Color de fondo beige */
+  text-align: center; /* Alinea todo el texto al centro */
 }
 
+/* Estilo para el título principal */
 h1 {
-  margin: 20px 0;
-  color: #333;
+  margin: 20px 0; /* Margen superior e inferior */
+  color: #333; /* Color oscuro para el texto */
 }
 
-/* Contenedor del filtro en la parte superior derecha */
+/* Contenedor para el filtro, posicionado en la parte superior derecha */
 .filter-container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: #808080;
-  padding: 10px;
-  border-radius: 5px;
-  z-index: 10;
+  display: flex; /* Usamos flexbox para organizar el contenido */
+  align-items: center; /* Alinea verticalmente */
+  justify-content: flex-end; /* Alinea hacia la derecha */
+  position: fixed; /* Lo fija en la parte superior derecha */
+  top: 20px; /* Distancia desde la parte superior */
+  right: 20px; /* Distancia desde el lado derecho */
+  background-color: #808080; /* Fondo gris */
+  padding: 10px; /* Espaciado interno */
+  border-radius: 5px; /* Bordes redondeados */
+  z-index: 10; /* Asegura que el filtro esté sobre otros elementos */
 }
 
+/* Estilo para el label dentro del filtro */
 .filter-container label {
-  margin-right: 10px;
-  font-size: 16px;
-  color: #333;
+  margin-right: 10px; /* Espacio entre el label y el select */
+  font-size: 16px; /* Tamaño de fuente */
+  color: #333; /* Color del texto */
 }
 
+/* Estilo para el select dentro del filtro */
 .filter-container select {
-  padding: 5px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 5px; /* Espaciado interno */
+  font-size: 16px; /* Tamaño de fuente */
+  border: 1px solid #ccc; /* Borde gris claro */
+  border-radius: 5px; /* Bordes redondeados */
 }
 
+/* Estilo para el contenedor del carrusel */
 .carousel-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 20px;
-  padding-top: 50px; /* Para que no se superponga con el filtro */
+  display: flex; /* Usamos flexbox */
+  align-items: center; /* Alinea verticalmente */
+  justify-content: center; /* Alinea horizontalmente */
+  margin: 20px; /* Márgenes */
+  padding-top: 50px; /* Separación de la parte superior para evitar superposición con el filtro */
 }
 
+/* Contenedor del carrusel */
 .carousel {
-  overflow: hidden;
-  width: 300px;
-  position: relative;
+  overflow: hidden; /* Oculta el contenido fuera del carrusel */
+  width: 300px; /* Ancho fijo */
+  position: relative; /* Necesario para posicionar los botones */
 }
 
+/* Estilo para el track del carrusel */
 .carousel-track {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
-  width: 100%;
+  display: flex; /* Los items del carrusel estarán en una fila */
+  transition: transform 0.5s ease-in-out; /* Transición suave al mover los items */
+  width: 100%; /* Ocupa todo el ancho disponible */
 }
 
+/* Estilo para cada item del carrusel */
 .carousel-item {
-  min-width: 300px;
-  padding: 10px;
-  text-align: center;
+  min-width: 300px; /* Cada item tiene un ancho fijo */
+  padding: 10px; /* Espaciado interno */
+  text-align: center; /* Centra el contenido del item */
 }
 
+/* Estilo para las imágenes dentro del carrusel */
 .carousel-item img {
-  width: 100%;
-  height: auto;
-  max-height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  width: 100%; /* Ocupa todo el ancho disponible */
+  height: auto; /* Mantiene la proporción de la imagen */
+  max-height: 200px; /* Limita la altura máxima */
+  object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+  border-radius: 10px; /* Bordes redondeados */
+  margin-bottom: 10px; /* Espaciado debajo de la imagen */
 }
 
+/* Estilo para los botones de navegación */
 .nav-btn {
-  background: #007bff;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 18px;
+  background: #007bff; /* Fondo azul */
+  color: #fff; /* Texto blanco */
+  border: none; /* Sin borde */
+  padding: 10px; /* Espaciado interno */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 18px; /* Tamaño de fuente */
 }
 
+/* Estilo para los botones de navegación al pasar el cursor */
 .nav-btn:hover {
-  background: #0056b3;
+  background: #0056b3; /* Cambio a un azul más oscuro */
 }
 
+/* Estilo para los botones de "Like" */
 .like-btn {
-  background: #ff4d4d;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 14px;
+  background: #ff4d4d; /* Fondo rojo */
+  color: white; /* Texto blanco */
+  border: none; /* Sin borde */
+  padding: 8px 12px; /* Espaciado interno */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 14px; /* Tamaño de fuente */
 }
 
+/* Estilo para los botones de "Like" al pasar el cursor */
 .like-btn:hover {
-  background: #cc0000;
+  background: #cc0000; /* Cambio a un rojo más oscuro */
 }
 
+/* Estilos para la lista de items favoritos */
 .liked-items {
-  margin: 20px;
+  margin: 20px; /* Espaciado */
 }
 
 .liked-items ul {
-  list-style: none;
-  padding: 0;
+  list-style: none; /* Elimina los puntos de la lista */
+  padding: 0; /* Elimina el padding */
 }
 
 .liked-items li {
-  margin: 5px 0;
-  font-size: 16px;
-  color: #333;
+  margin: 5px 0; /* Espaciado entre los elementos */
+  font-size: 16px; /* Tamaño de fuente */
+  color: #333; /* Color de texto */
 }
 
+/* Estilos para el botón de eliminar */
 .delete-btn {
-  background-color: #f44336;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  font-size: 0.9em;
-  margin-left: 10px;
+  background-color: #f44336; /* Fondo rojo */
+  color: white; /* Texto blanco */
+  border: none; /* Sin borde */
+  padding: 5px 10px; /* Espaciado interno */
+  cursor: pointer; /* Cambia el cursor */
+  font-size: 0.9em; /* Tamaño de fuente */
+  margin-left: 10px; /* Espacio entre el botón y el texto */
 }
 
+/* Estilo para el botón de eliminar al pasar el cursor */
 .delete-btn:hover {
-  background-color: #d32f2f;
+  background-color: #d32f2f; /* Cambio a un rojo más oscuro */
 }
 
+/* Estilos para el formulario de autenticación (login) */
 .auth-form {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 20px auto;
-  max-width: 300px;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  flex-direction: column; /* Coloca los elementos en columna */
+  align-items: center; /* Alinea los elementos al centro */
+  margin: 20px auto; /* Márgenes automáticos para centrar */
+  max-width: 300px; /* Ancho máximo */
+  padding: 20px; /* Espaciado interno */
+  background-color: #fff; /* Fondo blanco */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
 }
 
+/* Estilo para los inputs en el formulario */
 .auth-form input {
-  margin: 10px 0;
-  padding: 10px;
-  width: 100%;
-  border-radius: 5px;
-  border: 1px solid #ddd;
+  margin: 10px 0; /* Espaciado entre los inputs */
+  padding: 10px; /* Espaciado interno */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  border-radius: 5px; /* Bordes redondeados */
+  border: 1px solid #ddd; /* Borde gris claro */
 }
 
+/* Estilo para el botón de login */
 .auth-form button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 5px;
-  font-size: 16px;
+  background-color: #007bff; /* Fondo azul */
+  color: #fff; /* Texto blanco */
+  border: none; /* Sin borde */
+  padding: 10px; /* Espaciado interno */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 16px; /* Tamaño de fuente */
 }
 
+/* Estilo para el botón de login al pasar el cursor */
 .auth-form button:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; /* Azul más oscuro */
 }
 
+/* Estilo para los enlaces en el formulario */
 .auth-form a {
-  text-decoration: none;
-  color: #007bff;
+  text-decoration: none; /* Elimina el subrayado */
+  color: #007bff; /* Color azul */
 }
 
+/* Estilo para los enlaces en el formulario al pasar el cursor */
 .auth-form a:hover {
-  text-decoration: underline;
+  text-decoration: underline; /* Subraya el texto */
 }
 
-.carousel-container, .liked-items {
-  display: none;
-}
-/* Estilos para el carrito */
+/* Estilos para el carrito de compras */
 .cart-items {
-  margin: 20px;
+  margin: 20px; /* Espaciado */
 }
 
 .cart-items ul {
-  list-style: none;
-  padding: 0;
+  list-style: none; /* Elimina los puntos de la lista */
+  padding: 0; /* Elimina el padding */
 }
 
 .cart-items li {
-  margin: 5px 0;
-  font-size: 16px;
-  color: #333;
+  margin: 5px 0; /* Espaciado entre los elementos */
+  font-size: 16px; /* Tamaño de fuente */
+  color: #333; /* Color de texto */
 }
 
+/* Estilo para los botones de eliminar del carrito */
 .cart-items button {
-  background-color: #f44336;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  font-size: 0.9em;
-  margin-left: 10px;
+  background-color: #f44336; /* Fondo rojo */
+  color: white; /* Texto blanco */
+  border: none; /* Sin borde */
+  padding: 5px 10px; /* Espaciado interno */
+  cursor: pointer; /* Cambia el cursor */
+  font-size: 0.9em; /* Tamaño de fuente */
 }
 
+/* Estilo para los botones del carrito al pasar el cursor */
 .cart-items button:hover {
-  background-color: #d32f2f;
+  background-color: #d32f2f; /* Cambio a un rojo más oscuro */
 }
-/* Estilo para el modal */
-.modal img {
-  width: 80%; /* Ajusta el tamaño de la imagen */
-  max-height: 300px; /* Limita la altura máxima */
-  object-fit: contain; /* Ajusta la imagen manteniendo proporción */
-  border-radius: 10px; /* Opcional: bordes redondeados */
-}
+
 /* Estilo para el modal */
 .modal {
-  display: none; 
-  position: fixed; 
-  top: 0; 
-  left: 0; 
-  width: 100%; 
-  height: 100%; 
-  background: rgba(0, 0, 0, 0.8); 
-  justify-content: center; 
-  align-items: center; 
-  z-index: 1000;
+  display: none; /* Inicialmente oculto */
+  position: fixed; /* Fijado en toda la pantalla */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Fondo semitransparente */
+  justify-content: center; /* Centrado vertical y horizontal */
+  align-items: center; /* Centrado vertical */
+  z-index: 1000; /* Sobrepone otros elementos */
 }
 
 .modal.active {
-  display: flex;
+  display: flex; /* Muestra el modal cuando tiene la clase 'active' */
 }
 
+/* Estilo para el contenido del modal */
 .modal-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  max-width: 90%;
-  overflow: hidden;
+  display: flex; /* Usamos flexbox */
+  align-items: center; /* Centra las imágenes verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+  max-width: 90%; /* Limita el tamaño máximo */
+  overflow: hidden; /* Oculta contenido desbordado */
 }
 
+/* Estilo para las imágenes dentro del modal */
 .modal-content img {
-  width: 450px; /* Tamaño más pequeño */
-  height: auto;
-  max-height: 450px;
-  object-fit: cover;
-  margin: 0 5px; /* Espacio entre imágenes */
-  border-radius: 10px;
+  width: 450px; /* Ancho fijo para la imagen */
+  height: auto; /* Mantiene la proporción de la imagen */
+  max-height: 450px; /* Limita la altura máxima */
+  object-fit: cover; /* Asegura que la imagen no se distorsione */
+  margin: 0 5px; /* Espaciado entre las imágenes */
+  border-radius: 10px; /* Bordes redondeados */
 }
 
+/* Estilo para los botones dentro del modal */
 .modal-content button {
-  margin: 0 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  border-radius: 5px;
+  margin: 0 10px; /* Espaciado */
+  background-color: #007bff; /* Fondo azul */
+  color: white; /* Texto blanco */
+  border: none; /* Sin borde */
+  padding: 10px; /* Espaciado interno */
+  cursor: pointer; /* Cambia el cursor */
+  border-radius: 5px; /* Bordes redondeados */
 }
 
+/* Estilo para los botones dentro del modal al pasar el cursor */
 .modal-content button:hover {
-  background-color: #0056b3;
+  background-color: #0056b3; /* Azul más oscuro */
 }
-/* Centrado del título */
-/* Centrado del título */
+
+/* Estilo para el título principal con imagen */
 h1 {
   display: flex;
-  align-items: center;   /* Alinea verticalmente el texto y la imagen */
-  justify-content: center; /* Centra el texto horizontalmente */
-  font-size: 2em;         /* Tamaño del texto */
-  text-align: center;     /* Centra el texto */
-  
+  align-items: center; /* Alinea la imagen y el texto verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+  font-size: 2em; /* Tamaño grande para el título */
+  text-align: center; /* Alineación central */
 }
 
-/* Estilo para la imagen del regalo */
 /* Estilo para la imagen del regalo */
 .gift-icon {
-  width: 40px;  /* Ajusta el tamaño inicial de la imagen */
-  height: auto;
+  width: 40px; /* Tamaño de la imagen */
+  height: auto; /* Mantiene la proporción */
   margin-right: 10px; /* Espacio entre la imagen y el texto */
-  vertical-align: middle; /* Alineación vertical */
-  transition: transform 0.3s ease; /* Suaviza el efecto de transformación */
-  border-radius: 20px;
+  vertical-align: middle; /* Alinea verticalmente */
+  transition: transform 0.3s ease; /* Efecto de transformación suave */
+  border-radius: 20px; /* Bordes redondeados */
 }
 
-/* Efecto hover para aumentar la imagen */
+/* Efecto al pasar el cursor sobre la imagen */
 .gift-icon:hover {
   transform: scale(1.5); /* Aumenta el tamaño de la imagen al 150% */
 }
 
+/* Estilo para el fondo de gradiente del título */
 .gradient-background {
   background: linear-gradient(to right, 
-    #ff7e5f,  /* Rosa */
-    #feb47b,  /* Naranja */
-    #ff6a00,  /* Naranja fuerte */
-    #d83c74,  /* Rojo anaranjado */
-    #3a1c71,  /* Púrpura */
-    #ffd200   /* Amarillo */
-  );
-  height: 5vh;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: whitesmoke;
-  font-family: 'Poppins', sans-serif;  /* Cambia la tipografía a Poppins */
-  border-radius: 5px; /* Esquinas redondeadas */
-  transition: background 0.3s ease, color 0.3s ease; /* Suaviza el cambio del fondo y color */
+    #ff7e5f, #feb47b, #ff6a00, #d83c74, #3a1c71, #ffd200);
+  height: 5vh; /* Altura pequeña */
+  margin: 0; /* Sin margen */
+  display: flex; /* Usamos flexbox */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  color: whitesmoke; /* Color claro */
+  font-family: 'Poppins', sans-serif; /* Tipografía personalizada */
+  border-radius: 5px; /* Bordes redondeados */
+  transition: background 0.3s ease, color 0.3s ease; /* Transición suave */
 }
 
-/* Efecto hover */
+/* Efecto hover para el fondo de gradiente */
 .gradient-background:hover {
   background: linear-gradient(to right, 
-    #00c6ff,  /* Azul */
-    #0072ff,  /* Azul fuerte */
-    #8e2de2,  /* Violeta */
-    #4a00e0,  /* Púrpura oscuro */
-    #ff7e5f,  /* Rosa */
-    #feb47b   /* Naranja */
-  );
-  color: black;  /* Cambia el color del texto a gris oscuro */
-  cursor: pointer; /* Cambia el cursor para indicar que es interactivo */
+    #00c6ff, #0072ff, #8e2de2, #4a00e0, #ff7e5f, #feb47b);
+  color: black; /* Cambia el color del texto a gris oscuro */
+  cursor: pointer; /* Indica que es interactivo */
 }
-

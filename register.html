@@ -1,31 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Establece la codificación de caracteres a UTF-8 y ajusta el diseño para dispositivos móviles -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Título de la página -->
   <title>Registro</title>
+
+  <!-- Enlace al archivo de estilos CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Contenedor del formulario de registro -->
   <div class="auth-form">
     <h2>Regístrate</h2>
+    
+    <!-- Campo de entrada para el nombre de usuario -->
     <input type="text" id="register-username" placeholder="Usuario" required>
+    
+    <!-- Campo de entrada para la contraseña -->
     <input type="password" id="register-password" placeholder="Contraseña" required>
+    
+    <!-- Botón para enviar el formulario -->
     <button id="register-btn">Registrarse</button>
+
+    <!-- Enlace para los usuarios que ya tienen cuenta -->
     <p>¿Ya tienes cuenta? <a href="index.html">Inicia sesión</a></p>
   </div>
+
   <script>
+    // Se añade un event listener al botón de registro para ejecutar la función al hacer clic
     document.getElementById('register-btn').addEventListener('click', () => {
+      // Se obtienen los valores ingresados por el usuario en los campos de nombre de usuario y contraseña
       const username = document.getElementById('register-username').value;
       const password = document.getElementById('register-password').value;
 
+      // Si ambos campos están llenos
       if (username && password) {
+        // Se obtienen los usuarios guardados en localStorage (si existen) o se crea un array vacío
         const users = JSON.parse(localStorage.getItem('users')) || [];
+        
+        // Se agrega el nuevo usuario con su nombre de usuario y contraseña
         users.push({ username, password });
+
+        // Se guarda el array actualizado de usuarios en localStorage
         localStorage.setItem('users', JSON.stringify(users));
+
+        // Se muestra una alerta indicando que el registro fue exitoso
         alert('Registro exitoso. Ahora puedes iniciar sesión.');
-        window.location.href = 'index.html'; // Redirige al login
+
+        // Redirige al usuario a la página de inicio de sesión (login)
+        window.location.href = 'index.html';
       } else {
+        // Si faltan campos por completar, muestra una alerta
         alert('Por favor, completa todos los campos.');
       }
     });

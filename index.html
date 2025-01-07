@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Random Gift</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css"> <!-- Vincula el archivo de estilos CSS -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <!-- Otras etiquetas meta y links -->
  
@@ -12,10 +12,11 @@
 </head>
 <body>
   <div class="app">
+    <!-- Título de la aplicación con una imagen de un regalo -->
     <h1><img src="img/regalo.jpg" alt="Regalo" class="gift-icon">  <div class="gradient-background"> RANDOM GIFT</div></h1>
     </div>
 
-    <!-- Filtro de categoría -->
+    <!-- Filtro de categoría: permite filtrar los productos mostrados -->
     <div class="filter-container" id="filter-container">
       <label for="category-filter">Filtrar por categoría:</label>
       <select id="category-filter">
@@ -26,6 +27,7 @@
       </select>
     </div>
 
+    <!-- Contenedor de autenticación, que muestra el formulario de inicio de sesión -->
     <div id="auth-container">
       <div id="login-form" class="auth-form">
         <h2>Iniciar sesión</h2>
@@ -36,6 +38,7 @@
       </div>
     </div>
 
+     <!-- Contenedor de la sección del carrusel de productos -->
     <div class="carousel-container">
       <button id="prev" class="nav-btn">⬅️</button>
       <div class="carousel">
@@ -102,21 +105,23 @@
           </div>
         </div>
       </div>
-      <button id="next" class="nav-btn">➡️</button>
+      <button id="next" class="nav-btn">➡️</button> <!-- Botón para navegar hacia el siguiente producto -->
     </div>
 
+    <!-- Sección de regalos favoritos del usuario -->
     <div class="liked-items">
       <h2>❤️ Mis regalos favoritos</h2>
       <ul id="favorites"></ul>
     </div>
 
+  <!-- Sección del carrito de compras -->
     <div class="cart-items">
       <h2>🛒 Carrito de Compras</h2>
       <ul id="cart"></ul>
     </div>
   </div>
 
-  <!-- Modal para vista detallada -->
+   <!-- Modal para mostrar una vista detallada del producto -->
   <div id="product-modal" class="modal">
     <div class="modal-content">
       <span id="close-modal" class="close">&times;</span>
