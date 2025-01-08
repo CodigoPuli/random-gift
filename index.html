@@ -1,127 +1,131 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Random Gift</title>
   <link rel="stylesheet" href="style.css"> <!-- Vincula el archivo de estilos CSS -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <!-- Otras etiquetas meta y links -->
- 
-  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Otras etiquetas meta y links -->
+
+
 </head>
+
 <body>
   <div class="app">
     <!-- Título de la aplicación con una imagen de un regalo -->
-    <h1><img src="img/regalo.jpg" alt="Regalo" class="gift-icon">  <div class="gradient-background"> RANDOM GIFT</div></h1>
-    </div>
+    <h1><img src="img/regalo.jpg" alt="Regalo" class="gift-icon">
+      <div class="gradient-background"> RANDOM GIFT</div>
+    </h1>
+  </div>
 
-    <!-- Filtro de categoría: permite filtrar los productos mostrados -->
-    <div class="filter-container" id="filter-container">
-      <label for="category-filter">Filtrar por categoría:</label>
-      <select id="category-filter">
-        <option value="">Todas</option>
-        <option value="tecnologia">Tecnología</option>
-        <option value="moda">Moda</option>
-        <option value="libros">Libros</option>
-      </select>
-    </div>
+  <!-- Filtro de categoría: permite filtrar los productos mostrados -->
+  <div class="filter-container" id="filter-container">
+    <label for="category-filter">Filtrar por categoría:</label>
+    <select id="category-filter">
+      <option value="">Todas</option>
+      <option value="tecnologia">Tecnología</option>
+      <option value="moda">Moda</option>
+      <option value="libros">Libros</option>
+    </select>
+  </div>
 
-    <!-- Contenedor de autenticación, que muestra el formulario de inicio de sesión -->
-    <div id="auth-container">
-      <div id="login-form" class="auth-form">
-        <h2>Iniciar sesión</h2>
-        <input type="text" id="login-username" placeholder="Usuario" required>
-        <input type="password" id="login-password" placeholder="Contraseña" required>
-        <button id="login-btn">Iniciar sesión</button>
-        <p>No tienes cuenta? <a href="register.html">Regístrate</a></p>
-      </div>
-    </div>
-
-     <!-- Contenedor de la sección del carrusel de productos -->
-    <div class="carousel-container">
-      <button id="prev" class="nav-btn">⬅️</button>
-      <div class="carousel">
-        <div class="carousel-track">
-          <div class="carousel-item" data-category="tecnologia">
-            <img src="img/ordenador.jpg" alt="Ordenador">
-            <button class="like-btn">❤️ Like</button>
-            <button class="cart-btn">🛒 Carrito</button>
-          </div>
-          <div class="carousel-item" data-category="tecnologia">
-            <img src="img/auriculares.jpg" alt="Auriculares">
-            <button class="like-btn">❤️ Like</button>
-            <button class="cart-btn">🛒 Carrito</button>
-          </div>
-          <div class="carousel-item" data-category="libros">
-            <img src="img/libro1.jpg" alt="Libro1">
-            <button class="like-btn">❤️ Like</button>
-            <button class="cart-btn">🛒 Carrito</button>
-          </div>
-          <div class="carousel-item" data-category="tecnologia">
-            <img src="img/camara.jpg" alt="camara">
-            <button class="like-btn">❤️ Like</button>
-            <button class="cart-btn">🛒 Carrito</button>
-          </div>
-          <div class="carousel-item" data-category="libros">
-            <img src="img/libro2.jpg" alt="Libro2">
-            <button class="like-btn">❤️ Like</button>
-            <button class="cart-btn">🛒 Carrito</button>
-          </div>
-          <div class="carousel-item" data-category="tecnologia">
-            <img src="img/smartphone.jpg" alt="Smartphone">
-            <button class="like-btn">❤️ Like</button>
-            <button class="cart-btn">🛒 Carrito</button>
-          </div>
-          <div class="carousel-item" data-category="moda">
-            <img src="img/gorra.jpg" alt="Gorra">
-            <button class="like-btn">❤️ Like</button>
-            <button class="cart-btn">🛒 Carrito</button>
-          </div>
-          <div class="carousel-item" data-category="libros">
-            <img src="img/libro3.jpg" alt="Libro3">
-            <button class="like-btn">❤️ Like</button>
-            <button class="cart-btn">🛒 Carrito</button>
-          </div>
-          <div class="carousel-item" data-category="moda">
-            <img src="img/camiseta.jpg" alt="Camiseta">
-            <button class="like-btn">❤️ Like</button>
-            <button class="cart-btn">🛒 Carrito</button>
-          </div>
-          <div class="carousel-item" data-category="moda">
-            <img src="img/reloj.jpg" alt="Reloj">
-            <button class="like-btn">❤️ Like</button>
-            <button class="cart-btn">🛒 Carrito</button>
-          </div>
-          <div class="carousel-item" data-category="libros">
-            <img src="img/libro.jpg" alt="Libro">
-            <button class="like-btn">❤️ Like</button>
-            <button class="cart-btn">🛒 Carrito</button>
-          </div>
-          <div class="carousel-item" data-category="libros">
-            <img src="img/libro4.jpg" alt="Libro4">
-            <button class="like-btn">❤️ Like</button>
-            <button class="cart-btn">🛒 Carrito</button>
-          </div>
-        </div>
-      </div>
-      <button id="next" class="nav-btn">➡️</button> <!-- Botón para navegar hacia el siguiente producto -->
-    </div>
-
-    <!-- Sección de regalos favoritos del usuario -->
-    <div class="liked-items">
-      <h2>❤️ Mis regalos favoritos</h2>
-      <ul id="favorites"></ul>
-    </div>
-
-  <!-- Sección del carrito de compras -->
-    <div class="cart-items">
-      <h2>🛒 Carrito de Compras</h2>
-      <ul id="cart"></ul>
+  <!-- Contenedor de autenticación, que muestra el formulario de inicio de sesión -->
+  <div id="auth-container">
+    <div id="login-form" class="auth-form">
+      <h2>Iniciar sesión</h2>
+      <input type="text" id="login-username" placeholder="Usuario" required>
+      <input type="password" id="login-password" placeholder="Contraseña" required>
+      <button id="login-btn">Iniciar sesión</button>
+      <p>No tienes cuenta? <a href="register.html">Regístrate</a></p>
     </div>
   </div>
 
-   <!-- Modal para mostrar una vista detallada del producto -->
+  <!-- Contenedor de la sección del carrusel de productos -->
+  <div class="carousel-container">
+    <button id="prev" class="nav-btn">⬅️</button>
+    <div class="carousel">
+      <div class="carousel-track">
+        <div class="carousel-item" data-category="tecnologia">
+          <img src="img/ordenador.jpg" alt="Ordenador">
+          <button class="like-btn">❤️ Like</button>
+          <button class="cart-btn">🛒 Carrito</button>
+        </div>
+        <div class="carousel-item" data-category="tecnologia">
+          <img src="img/auriculares.jpg" alt="Auriculares">
+          <button class="like-btn">❤️ Like</button>
+          <button class="cart-btn">🛒 Carrito</button>
+        </div>
+        <div class="carousel-item" data-category="libros">
+          <img src="img/libro1.jpg" alt="Libro1">
+          <button class="like-btn">❤️ Like</button>
+          <button class="cart-btn">🛒 Carrito</button>
+        </div>
+        <div class="carousel-item" data-category="tecnologia">
+          <img src="img/camara.jpg" alt="camara">
+          <button class="like-btn">❤️ Like</button>
+          <button class="cart-btn">🛒 Carrito</button>
+        </div>
+        <div class="carousel-item" data-category="libros">
+          <img src="img/libro2.jpg" alt="Libro2">
+          <button class="like-btn">❤️ Like</button>
+          <button class="cart-btn">🛒 Carrito</button>
+        </div>
+        <div class="carousel-item" data-category="tecnologia">
+          <img src="img/smartphone.jpg" alt="Smartphone">
+          <button class="like-btn">❤️ Like</button>
+          <button class="cart-btn">🛒 Carrito</button>
+        </div>
+        <div class="carousel-item" data-category="moda">
+          <img src="img/gorra.jpg" alt="Gorra">
+          <button class="like-btn">❤️ Like</button>
+          <button class="cart-btn">🛒 Carrito</button>
+        </div>
+        <div class="carousel-item" data-category="libros">
+          <img src="img/libro3.jpg" alt="Libro3">
+          <button class="like-btn">❤️ Like</button>
+          <button class="cart-btn">🛒 Carrito</button>
+        </div>
+        <div class="carousel-item" data-category="moda">
+          <img src="img/camiseta.jpg" alt="Camiseta">
+          <button class="like-btn">❤️ Like</button>
+          <button class="cart-btn">🛒 Carrito</button>
+        </div>
+        <div class="carousel-item" data-category="moda">
+          <img src="img/reloj.jpg" alt="Reloj">
+          <button class="like-btn">❤️ Like</button>
+          <button class="cart-btn">🛒 Carrito</button>
+        </div>
+        <div class="carousel-item" data-category="libros">
+          <img src="img/libro.jpg" alt="Libro">
+          <button class="like-btn">❤️ Like</button>
+          <button class="cart-btn">🛒 Carrito</button>
+        </div>
+        <div class="carousel-item" data-category="libros">
+          <img src="img/libro4.jpg" alt="Libro4">
+          <button class="like-btn">❤️ Like</button>
+          <button class="cart-btn">🛒 Carrito</button>
+        </div>
+      </div>
+    </div>
+    <button id="next" class="nav-btn">➡️</button> <!-- Botón para navegar hacia el siguiente producto -->
+  </div>
+
+  <!-- Sección de regalos favoritos del usuario -->
+  <div class="liked-items">
+    <h2>❤️ Mis regalos favoritos</h2>
+    <ul id="favorites"></ul>
+  </div>
+
+  <!-- Sección del carrito de compras -->
+  <div class="cart-items">
+    <h2>🛒 Carrito de Compras</h2>
+    <ul id="cart"></ul>
+  </div>
+  </div>
+
+  <!-- Modal para mostrar una vista detallada del producto -->
   <div id="product-modal" class="modal">
     <div class="modal-content">
       <span id="close-modal" class="close">&times;</span>
@@ -134,9 +138,10 @@
         <!-- Las imágenes se cargan dinámicamente desde script.js -->
       </div>
     </div>
-    
+
   </div>
 
   <script src="script.js"></script>
 </body>
+
 </html>

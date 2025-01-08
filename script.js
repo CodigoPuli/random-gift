@@ -15,8 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentIndex = 0;
 
   // Función para mover el carrusel a un índice específico
-  const moveToIndex = (index) => {
-    const visibleItems = items.filter(item => item.style.display !== 'none');
+  const moveToIndex = (index, visibleItems) => {
     const itemWidth = visibleItems[0]?.getBoundingClientRect().width || 0;
     track.style.transform = `translateX(-${index * itemWidth}px)`; // Desplaza el carrusel según el índice
   };
@@ -57,14 +56,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Navegación del carrusel (anterior)
   prevButton.addEventListener('click', () => {
-    currentIndex = (currentIndex > 0) ? currentIndex - 1 : items.length - 1; // Mover al índice anterior
-    moveToIndex(currentIndex); // Mueve el carrusel hacia atrás
+    const visibleItems = items.filter(item => item.style.display !== 'none');
+    currentIndex = (currentIndex > 0) ? currentIndex - 1 : visibleItems.length - 1; // Mover al índice anterior
+    moveToIndex(currentIndex, visibleItems); // Mueve el carrusel hacia atrás
   });
 
   // Navegación del carrusel (siguiente)
   nextButton.addEventListener('click', () => {
-    currentIndex = (currentIndex < items.length - 1) ? currentIndex + 1 : 0; // Mover al siguiente índice
-    moveToIndex(currentIndex); // Mueve el carrusel hacia adelante
+    const visibleItems = items.filter(item => item.style.display !== 'none');
+    currentIndex = (currentIndex < visibleItems.length - 1) ? currentIndex + 1 : 0; // Mover al siguiente índice
+    moveToIndex(currentIndex, visibleItems); // Mueve el carrusel hacia adelante
   });
 
   // Cargar elementos favoritos desde localStorage
@@ -167,13 +168,20 @@ document.addEventListener('DOMContentLoaded', () => {
     items.forEach(item => {
       const itemCategory = item.dataset.category; // Obtener la categoría del ítem
       // Filtrar los ítems según la categoría seleccionada
-      item.style.display = (selectedCategory === '' || itemCategory === selectedCategory || (selectedCategory === 'moda' && ['gorra', 'camiseta'].some(keyword => item.querySelector('img').alt.toLowerCase().includes(keyword)))) ? 'block' : 'none';
+      const isVisible = selectedCategory === '' || itemCategory === selectedCategory || 
+        (selectedCategory === 'moda' && ['gorra', 'camiseta'].some(keyword => item.querySelector('img').alt.toLowerCase().includes(keyword)));
+      item.style.display = isVisible ? 'block' : 'none';
     });
-    currentIndex = 0; // Volver al primer ítem después de aplicar el filtro
-    moveToIndex(currentIndex); // Mover el carrusel al primer ítem
+
+    // Mover al primer ítem después de aplicar el filtro
+    const visibleItems = items.filter(item => item.style.display !== 'none');
+    currentIndex = 0; // Volver al primer ítem visible
+    if (visibleItems.length > 0) {
+      moveToIndex(currentIndex, visibleItems); // Mueve el carrusel al primer ítem visible
+    }
   });
 
-  // Nueva funcionalidad: Vista detallada del producto en un modal
+  // Función para crear y mostrar el modal de imágenes
   const createModal = () => {
     const modal = document.createElement('div'); // Crear el modal
     modal.classList.add('modal');
