@@ -201,38 +201,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const { modal, modalContent, modalCloseButton } = createModal();
 
-  let modalIndex = 0; // Índice de la imagen del modal
-  let modalImages = []; // Arreglo para almacenar las imágenes del modal
-
-  // Función para mover las imágenes del modal
-  const moveModalIndex = (index) => {
-    modalImages.forEach((img, i) => {
-      img.style.display = i === index ? 'block' : 'none';
-    });
-  };
-
   // Evento para mostrar el modal al hacer clic en una imagen del carrusel
   items.forEach((item, index) => {
     const img = item.querySelector('img');
     img.addEventListener('click', () => {
-      modalIndex = index;
-      modalImages = items.map(i => i.querySelector('img').cloneNode()); // Clonar las imágenes para el modal
-      modalContent.innerHTML = '';
-      modalImages.forEach(modalImg => modalContent.appendChild(modalImg)); // Añadir las imágenes clonadas al modal
+      // Clonar la imagen seleccionada y mostrarla en el modal
+      const modalImg = img.cloneNode();
+      modalContent.innerHTML = ''; // Limpiar contenido previo
+      modalContent.appendChild(modalImg); // Añadir la imagen seleccionada al modal
       modalContent.appendChild(modalCloseButton); // Añadir el botón de cerrar al modal
 
-      moveModalIndex(modalIndex); // Mostrar la imagen correspondiente
       modal.classList.add('active'); // Mostrar el modal
     });
   });
 
-  // Navegación de imágenes en el modal
-  modalContent.addEventListener('click', (e) => {
-    if (e.target.tagName === 'IMG') { // Si se hace clic en una imagen
-      modalIndex = (modalIndex + 1) % modalImages.length; // Cambiar a la siguiente imagen
-      moveModalIndex(modalIndex);
-    }
-  });
-
-  showLoginForm(); // Mostrar el formulario de inicio de sesión por defecto
+  // Mostrar el formulario de inicio de sesión por defecto
+  showLoginForm();
 });
